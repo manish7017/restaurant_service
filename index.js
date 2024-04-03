@@ -2,7 +2,8 @@ import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import mongoose from "mongoose";
-
+import dotenv from "dotenv";
+dotenv.config();
 const { connect, connection, Schema, model, Types } = mongoose;
 
 const app = express();
@@ -13,7 +14,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // MongoDB connection
-connect("mongodb://localhost:27017/restaurant_db");
+connect(process.env.MONGODB_URI || "mongodb://localhost:27017/restaurant_db");
 
 const db = connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
