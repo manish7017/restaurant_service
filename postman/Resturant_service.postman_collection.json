@@ -1,0 +1,222 @@
+{
+	"info": {
+		"_postman_id": "9e96b775-5920-4b09-840b-a16c685e48c3",
+		"name": "Resturant_service",
+		"description": "A simple REST API built in JavaScript for a hypothetical online restaurant service. The API provides functionalities to manage products and orders within the restaurant's system.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26910803"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Create a new product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Product Name\",\r\n  \"price\": 99.99,\r\n  \"description\": \"Product Description\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/products",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a bulk of new products",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"name\": \"Margherita Pizza\",\r\n    \"price\": 12.99,\r\n    \"description\": \"Classic Neapolitan pizza with tomato sauce, fresh basil, and mozzarella cheese.\"\r\n  },\r\n  {\r\n    \"name\": \"Chicken Alfredo Pasta\",\r\n    \"price\": 15.49,\r\n    \"description\": \"Fettuccine pasta tossed in a creamy Alfredo sauce with grilled chicken and parmesan cheese.\"\r\n  },\r\n  {\r\n    \"name\": \"Greek Salad\",\r\n    \"price\": 8.99,\r\n    \"description\": \"Fresh lettuce, tomatoes, cucumbers, red onions, Kalamata olives, and feta cheese with a tangy Greek dressing.\"\r\n  },\r\n  {\r\n    \"name\": \"Beef Burrito\",\r\n    \"price\": 10.75,\r\n    \"description\": \"Flour tortilla filled with seasoned ground beef, refried beans, rice, and cheese, topped with salsa and sour cream.\"\r\n  },\r\n  {\r\n    \"name\": \"Chocolate Lava Cake\",\r\n    \"price\": 6.99,\r\n    \"description\": \"Warm and rich molten chocolate cake served with a scoop of vanilla ice cream.\"\r\n  }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/products/bulk",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products",
+								"bulk"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/products",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Updated Product\",\r\n  \"price\": 79.99,\r\n  \"description\": \"Updated Product Description\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/products/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "",
+									"description": "Add Id of the product here\n"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/products/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "",
+									"description": "Add the product id"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Create a new order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"products\": [\"660d9cebe4a5572e886d4075\", \"660d9cebe4a5572e886d4076\"], //Change the id of the product accordingly\r\n  \"customerName\": \"John Doe\",\r\n  \"customerEmail\": \"john.doe@example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/orders",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/orders",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
